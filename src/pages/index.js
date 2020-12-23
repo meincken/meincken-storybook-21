@@ -1,39 +1,47 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import Layout from "../global/Layout";
+import TextAndMedia from "../components/TextAndMedia/index";
+import Hero from "../components/Image/hero";
+import HeroImg from "../assets/images/header-background.jpg";
+import GenericImg from "../assets/images/picture-2.jpg";
 
-import Layout from '../global/Layout';
-import Image from '../components/Image';
-
-const Page = styled.div`
+const Section = styled.section`
   width: 100%;
-  height: 100vh;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
-const Heading = styled.h1`
-  font-size: 24px;
-  color: #555;
-  margin-top: 60px;
-`;
+const Page = styled.main`
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(2rem, 1fr)
+    [main-start] minmax(0, 110rem) [main-end]
+    minmax(2rem, 1fr) [full-end];
 
-const Label = styled.p`
-  font-size: 14px;
-  color: #aaa;
-  margin-top: 12px;
-  letter-spacing: 10px;
-  text-transform: uppercase;
+  > * {
+    grid-column: main;
+  }
 `;
 
 const IndexPage = () => (
   <Layout>
+    <Hero src={HeroImg} alt="Hero" />
     <Page>
-      <Image />
-      <Heading>GatsbyJS + Storybook</Heading>
-      <Label>Starter</Label>
+      <Section>
+        <TextAndMedia
+          heading2="This is my demo title 1"
+          para="lorem ipsum delore"
+          src={GenericImg}
+          alt="Testing this shit"
+        />
+        <TextAndMedia
+          heading2="This is my demo title 2"
+          para="lorem ipsum delore part 2"
+          src={GenericImg}
+          alt="Testing this shit"
+        />
+      </Section>
     </Page>
   </Layout>
 );

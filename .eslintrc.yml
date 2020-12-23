@@ -5,18 +5,18 @@ env:
   browser: true
   node: true
 rules:
+  arrow-body-style: 0
   no-underscore-dangle: 0
   no-plusplus: 0
   no-multi-assign: 0
   no-nested-ternary: 0
   no-unneeded-ternary: 0
   no-param-reassign: 0
+  no-shadow: 0
   no-unused-expressions:
     - error
     - allowShortCircuit: true
-  max-len:
-    - error
-    - ignoreComments: true
+  max-len: off
   comma-dangle:
     - error
     - arrays: always-multiline
@@ -27,21 +27,33 @@ rules:
   react/jsx-filename-extension:
     - error
     - extensions:
-      - .js
-      - .jsx
+        - .js
+        - .jsx
   import/no-extraneous-dependencies:
     - error
     - devDependencies: true
       peerDependencies: true
+  import/prefer-default-export: off
   no-await-in-loop: 0
   function-paren-newline: 0
   indent: 0
+
+  operator-linebreak:
+    - error
+    - after
   prefer-destructuring: 0
+  react/destructuring-assignment: off
+  implicit-arrow-linebreak: off
+  quotes:
+    - error
+    - double
   react/prop-types: 0
   react/no-multi-comp: 0
+  react/require-default-props: 0
   react/sort-comp: 0
   react/jsx-key: 1
   react/jsx-indent: 0
+  react/jsx-props-no-spreading: off
   jsx-a11y/anchor-is-valid: 0
   class-methods-use-this: 0
   object-curly-newline: 0

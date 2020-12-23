@@ -1,9 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
 
-import GlobalStyle from './GlobalStyle';
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "../components/GlobalStyle";
+import Default from "../assets/theme";
+
+import Header from "../components/Header/index";
+import Footer from "../components/Footer/index";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -12,24 +17,27 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            subtitle
           }
         }
       }
     `}
     render={(data) => (
-      <>
-        <Helmet>
-          <title>{data.site.siteMetadata.title}</title>
-          <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="default"
-          />
-        </Helmet>
-        <GlobalStyle />
+      <ThemeProvider theme={Default}>
         <>
-          {children}
+          <Helmet>
+            <title>{data.site.siteMetadata.title} {data.site.siteMetadata.subtitle}</title>
+            <meta
+              name="apple-mobile-web-app-status-bar-style"
+              content="default"
+            />
+          </Helmet>
+          <GlobalStyle />
+          <Header heading1={data.site.siteMetadata.title} subheading={data.site.siteMetadata.subtitle}/>
+          <>{children}</>
+          <Footer title={data.site.siteMetadata.title} />
         </>
-      </>
+      </ThemeProvider>
     )}
   />
 );
