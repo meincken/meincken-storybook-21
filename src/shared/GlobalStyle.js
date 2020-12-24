@@ -1,4 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
+import reset from "styled-reset-advanced";
 import { color, typography } from "./styles";
 
 export const bodyStyles = css`
@@ -161,15 +162,21 @@ export const bodyStyles = css`
   }
 `;
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
+  ${reset};
+
   html {
     font-size: 62.5%;
   }
 
   body {
     ${bodyStyles}
-    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 2.4rem;
     overflow-y: auto;
     overflow-x: hidden;
   }
 `;
+
+export default GlobalStyle;

@@ -40,9 +40,9 @@ export const spacing = {
 
 export const typography = {
   type: {
-    primary: '"Lato", sans-serif',
+    primary: "\"Lato\", sans-serif",
     code:
-      '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+      "\"SFMono-Regular\", Consolas, \"Liberation Mono\", Menlo, Courier, monospace",
   },
   weight: {
     light: "200",

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Layout from "../global/Layout";
+import { HR } from "../shared/ui-kit";
 import TextAndMedia from "../components/TextAndMedia/index";
 import Hero from "../components/Image/hero";
 import HeroImg from "../assets/images/header-background.jpg";
@@ -35,6 +36,7 @@ const IndexPage = () => (
           src={GenericImg}
           alt="Testing this shit"
         />
+        <HR />
         <TextAndMedia
           heading2="This is my demo title 2"
           para="lorem ipsum delore part 2"
